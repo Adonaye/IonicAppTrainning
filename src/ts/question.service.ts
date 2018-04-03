@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { DropdownQuestion } from "./question-dropdown";
 import { QuestionBase } from "./question-base";
 import { TextboxQuestion } from "./question-textbox";
+import { CheckboxQuestion } from './question-checkbox';
 
 @Injectable()
 export class QuestionService {
@@ -35,6 +36,14 @@ export class QuestionService {
         label: "Email",
         type: "email",
         order: 2
+      }),
+
+      new CheckboxQuestion({
+        key: 'agree',
+        label: 'I Agree',
+        type: 'checkbox',
+        value: 'false',
+        order: 4
       })
     ];
 

@@ -16,6 +16,11 @@
       </ion-select>
     </ion-item>
 
+    <ion-item *ngSwitchCase="'checkbox'">
+      <ion-label>{{question.label}}</ion-label>
+      <ion-checkbox [id]="question.key" [formControlName]="question.key" [checked]="question.value"></ion-checkbox>
+    </ion-item>
+
   </div>
 
   <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
