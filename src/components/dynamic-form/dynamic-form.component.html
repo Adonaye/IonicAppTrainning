@@ -1,0 +1,19 @@
+<!--component html goes here -->
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <ion-list>
+      <div *ngFor="let question of questions" class="form-row">
+        <app-question [question]="question" [form]="form"></app-question>
+      </div>
+
+      <div class="form-row">
+        <button ion-button type="submit" [disabled]="!form.valid">Save</button>
+      </div>
+    </ion-list>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong>
+    <br>{{payLoad}}
+  </div>
+</div>
