@@ -1,3 +1,4 @@
+import { FormViewerPage } from './../pages/form-viewer/form-viewer';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -20,7 +21,7 @@ import { QuestionService } from '../ts/question.service';
     MyApp,
     HomePage,
     ListPage,
-    FormBuilderPage,
+    FormViewerPage,
     DynamicFormComponent,
     DynamicFormQuestionComponent
   ],
@@ -34,7 +35,7 @@ import { QuestionService } from '../ts/question.service';
     MyApp,
     HomePage,
     ListPage,
-    FormBuilderPage
+    FormViewerPage
   ],
   providers: [
     StatusBar,

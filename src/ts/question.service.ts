@@ -14,6 +14,7 @@ export class QuestionService {
       new DropdownQuestion({
         key: "brave",
         label: "Bravery Rating",
+        required: true,
         options: [
           { key: "solid", value: "Solid" },
           { key: "great", value: "Great" },
@@ -41,7 +42,6 @@ export class QuestionService {
       new CheckboxQuestion({
         key: 'agree',
         label: 'I Agree',
-        type: 'checkbox',
         value: 'false',
         order: 4
       })
