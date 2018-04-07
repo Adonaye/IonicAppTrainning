@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { FormBuilderPage } from '../pages/form-builder/form-builder';
 import { FormViewerPage } from '../pages/form-viewer/form-viewer';
 
 @Component({
