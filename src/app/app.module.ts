@@ -2,6 +2,11 @@ import { FormViewerPage } from './../pages/form-viewer/form-viewer';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Firebase } from '@ionic-native/firebase';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -14,6 +19,7 @@ import { DynamicFormQuestionComponent } from './../components/dynamic-form-quest
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuestionControlService } from '../ts/question-control.service';
 import { QuestionService } from '../ts/question.service';
+import { FormProvider } from '../providers/form/form';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,9 @@ import { QuestionService } from '../ts/question.service';
     BrowserModule,
     ReactiveFormsModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,10 +48,12 @@ import { QuestionService } from '../ts/question.service';
   providers: [
     StatusBar,
     SplashScreen,
+    Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
     QuestionService,
-    QuestionControlService
+    QuestionControlService,
+    FormProvider
   ]
 })
 export class AppModule {}
