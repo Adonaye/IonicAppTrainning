@@ -12,22 +12,22 @@ export class QuestionService {
   getQuestions() {
     let questions: QuestionBase<any>[] = [
       new DropdownQuestion({
-        key: "brave",
-        label: "Bravery Rating",
+        key: "tipo",
+        label: "Tipo de usuario",
         required: true,
         options: [
-          { key: "solid", value: "Solid" },
-          { key: "great", value: "Great" },
-          { key: "good", value: "Good" },
-          { key: "unproven", value: "Unproven" }
+          { key: "invitado", value: "Invitado" },
+          { key: "lab", value: "Laboratorista" },
+          { key: "admin", value: "Adminsitrador" },
+          { key: "superadmin", value: "Super administrador" }
         ],
         order: 3
       }),
 
       new TextboxQuestion({
-        key: "firstName",
-        label: "First name",
-        value: "Bombasto",
+        key: "name",
+        label: "Nombre de usuario",
+        value: "",
         required: true,
         order: 1
       }),
@@ -36,13 +36,15 @@ export class QuestionService {
         key: "emailAddress",
         label: "Email",
         type: "email",
+        required: true,
         order: 2
       }),
 
       new CheckboxQuestion({
         key: 'agree',
-        label: 'I Agree',
+        label: '¿Está de acuerdo con el uso de la aplicación?',
         value: 'false',
+        required: true,
         order: 4
       })
     ];
