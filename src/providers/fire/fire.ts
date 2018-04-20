@@ -23,7 +23,7 @@ export class FireProvider {
   
   fetchCategories(path:string) {
     let collection = this.db.collection(path);
-    var items = collection.valueChangest();
+    var items = collection.valueChanges();
     return items;
   }
 
