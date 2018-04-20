@@ -7,13 +7,15 @@
       </div>
 
       <div class="form-row">
-        <button ion-button type="submit" [disabled]="!form.valid">Save</button>
+        <button ion-button block type="submit" [disabled]="!form.valid">Save</button>
       </div>
     </ion-list>
   </form>
 
+  <!-- only for testing submti
   <div *ngIf="payLoad" class="form-row">
     <strong>Se han guardado los siguientes valores</strong>
     <br>{{payLoad}}
   </div>
+  -->
 </div>

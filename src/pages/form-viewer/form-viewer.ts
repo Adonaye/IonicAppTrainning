@@ -16,8 +16,12 @@ import { QuestionService } from '../../ts/question.service';
 export class FormViewerPage {
   questions: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, qService: QuestionService) {
-    this.questions = qService.getQuestions();
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    qService: QuestionService
+  ) {
+    // this.questions = qService.getQuestions();
   }
 
   ionViewDidLoad() {

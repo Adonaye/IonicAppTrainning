@@ -13,13 +13,18 @@ export class DynamicFormComponent {
   form: FormGroup;
   payLoad = '';
 
-  constructor(public qcs: QuestionControlService) {  }
+  constructor(public qcs: QuestionControlService) {
+    
+  }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
+    // only for testing
+    // this.payLoad = JSON.stringify(this.form.value);
+    
+    
   }
 }
