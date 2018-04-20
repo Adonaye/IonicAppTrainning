@@ -2,10 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Observable } from 'rxjs/Observable';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FormViewerPage } from '../pages/form-viewer/form-viewer';
+import { Categoria } from '../models/categoria';
+import { CategoriasProvider } from '../providers/fire/categorias';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,8 +19,14 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
+  categorias: Categoria[] = new Array<Categoria>();
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    public cp: CategoriasProvider
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -31,6 +40,7 @@ export class MyApp {
     // redirect to form-list component with the url in the navparams
     
     
+    
   }
 
   initializeApp() {
@@ -38,6 +48,10 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
+      
+      // load categories in the sidebar
+      this.loadCategorias();
+      
       this.splashScreen.hide();
     });
   }
@@ -50,5 +64,18 @@ export class MyApp {
     // use url in the page and send it to the form-list component
     
     
+  }
+  
+  loadCategorias() {
+    let categoriasObservable = this.cp.fetch();
+    categoriasObservable.subscribe(
+      data => {
+        this.categorias = data.map(
+          categoria => {
+            return {id: categoria.payload.doc.id, ...categoria.payload.doc.data()};
+          }
+        );
+      }
+    );
   }
 }

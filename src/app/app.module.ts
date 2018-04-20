@@ -23,6 +23,7 @@ import { QuestionControlService } from '../ts/question-control.service';
 import { QuestionService } from '../ts/question.service';
 import { FormProvider } from '../providers/form/form';
 import { FireProvider } from '../providers/fire/fire';
+import { CategoriasProvider } from '../providers/fire/categorias';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import { FireProvider } from '../providers/fire/fire';
     FormListPage,
   ],
   providers: [
+    FireProvider,
+    CategoriasProvider,
     GooglePlus,
     StatusBar,
     SplashScreen,
@@ -59,7 +62,6 @@ import { FireProvider } from '../providers/fire/fire';
     QuestionService,
     QuestionControlService,
     FormProvider,
-    FireProvider
   ]
 })
 export class AppModule {}

@@ -6,12 +6,6 @@ import {
   AngularFirestoreCollection 
 } from 'angularfire2/firestore';
 
-/*
-  Generated class for the FireProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FireProvider {
 
@@ -21,10 +15,7 @@ export class FireProvider {
     
   }
   
-  fetchCategories(path:string) {
-    let collection = this.db.collection(path);
-    var items = collection.valueChanges();
-    return items;
+  fetchCollection(path:string) {
+    return this.db.collection(path);
   }
-
 }
