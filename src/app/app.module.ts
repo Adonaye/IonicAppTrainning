@@ -1,10 +1,9 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { environment } from '../environments/environment';
@@ -41,7 +40,7 @@ import { FireProvider } from '../providers/fire/fire';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireStoreModule,
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

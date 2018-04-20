@@ -13,7 +13,7 @@ export class HomePage {
     public navCtrl: NavController,
     public fire:FireProvider
   ) {
-    this.items = fire.fetchCategories('prueba');
+    this.items = this.fire.fetchCategories('prueba');
   }
 
 }
