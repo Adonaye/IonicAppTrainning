@@ -3,7 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { 
   AngularFirestore, 
   AngularFirestoreDocument, 
-  AngularFirestoreCollection 
+  AngularFirestoreCollection, 
+  QueryFn
 } from 'angularfire2/firestore';
 
 @Injectable()
@@ -15,7 +16,11 @@ export class FireProvider {
     
   }
   
-  fetchCollection(path:string) {
+  fetchCollection(path: string) {
     return this.db.collection(path);
+  }
+
+  fetchCollectionWithQuery(path: string, fn: QueryFn) {
+    return this.db.collection(path, fn);
   }
 }

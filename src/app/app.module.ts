@@ -24,6 +24,7 @@ import { QuestionService } from '../ts/question.service';
 import { FormProvider } from '../providers/form/form';
 import { FireProvider } from '../providers/fire/fire';
 import { CategoriasProvider } from '../providers/fire/categorias';
+import { FormulariosProvider } from '../providers/fire/formularios';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CategoriasProvider } from '../providers/fire/categorias';
   providers: [
     FireProvider,
     CategoriasProvider,
+    FormulariosProvider,
     GooglePlus,
     StatusBar,
     SplashScreen,

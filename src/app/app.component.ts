@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { FormViewerPage } from '../pages/form-viewer/form-viewer';
 import { Categoria } from '../models/categoria';
 import { CategoriasProvider } from '../providers/fire/categorias';
+import { FormListPage } from '../pages/form-list/form-list';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,6 +38,7 @@ export class MyApp {
     // ];
     
     // import categories and add the url references to the pages property
+    // this is made before hiding splash screen
     // redirect to form-list component with the url in the navparams
     
     
@@ -56,13 +58,13 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
+  openPage(categoria) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     //this.nav.setRoot(page.component);
     
-    // use url in the page and send it to the form-list component
-    
+    // use categoria ID in the page and send it to the form-list component
+    this.nav.setRoot(FormListPage, { categoria: categoria });
     
   }
   
