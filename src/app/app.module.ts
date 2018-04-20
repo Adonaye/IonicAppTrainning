@@ -6,6 +6,7 @@ import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { environment } from '../environments/environment';
 
 import { MyApp } from './app.component';
@@ -46,6 +47,7 @@ import { FormProvider } from '../providers/form/form';
     FormViewerPage
   ],
   providers: [
+    GooglePlus,
     StatusBar,
     SplashScreen,
     Firebase,
