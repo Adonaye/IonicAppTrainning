@@ -19,7 +19,7 @@ export class FormListPage {
     public navCtrl: NavController, 
     public navParams: NavParams
   ) {
-    this.action = this.navParams.get('action');
+    // this.action = this.navParams.get('action');
   }
 
   ionViewDidLoad() {
