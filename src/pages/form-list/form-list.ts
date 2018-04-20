@@ -13,17 +13,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'form-list.html',
 })
 export class FormListPage {
-  // formRef: 
+  // categoriaId: string;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams
   ) {
-    // this.action = this.navParams.get('action');
+    // this.categoriaId = this.navParams.get('categoriaId');
+    // this.fetchFormulariosByCategoriaId();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormListPage');
   }
 
+  fetchFormulariosByCategoriaId() {
+    
+  }
 }
