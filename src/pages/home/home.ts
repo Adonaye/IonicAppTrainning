@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { NavController } from 'ionic-angular';
 import { FireProvider } from './../../providers/fire/fire'
 
@@ -7,7 +8,7 @@ import { FireProvider } from './../../providers/fire/fire'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  items:Array<any>;
+  items:Observable<any[]>;
 
   constructor(
     public navCtrl: NavController,
