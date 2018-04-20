@@ -13,7 +13,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'form-list.html',
 })
 export class FormListPage {
-  formRef: 
+  // formRef: 
 
   constructor(
     public navCtrl: NavController, 
