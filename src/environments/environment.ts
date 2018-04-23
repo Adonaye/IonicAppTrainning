@@ -6,6 +6,7 @@ export const environment = {
     databaseURL: "https://pftry-77240.firebaseio.com",
     projectId: "pftry-77240",
     storageBucket: "pftry-77240.appspot.com",
-    messagingSenderId: "375944095749"
+    messagingSenderId: "375944095749",
+    timestampsInSnapshots: true
   }
 };

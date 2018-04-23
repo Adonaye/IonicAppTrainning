@@ -7,12 +7,24 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Listado de formularios</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  
+<ion-content>
+  <ion-list>
+      <ion-item-divider color="light" sticky>{{ categoria.nombre }}</ion-item-divider>
+      <button ion-item *ngFor="let formulario of formularios" (click)="foo()">
+        <ion-icon name='flask' item-start></ion-icon>
+        {{ formulario.nombre }}
+        <ion-note item-end>
+          puede ir la fecha
+        </ion-note>
+      </button>
+  </ion-list>
 </ion-content>

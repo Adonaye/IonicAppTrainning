@@ -30,6 +30,10 @@ export class FormListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormListPage');
   }
+  
+  foo() {
+    
+  }
 
   fetchFormulariosByCategoriaId(categoriaId: string) {
     let formulariosObservable = this.formProv.fetchByCategoriaId(this.categoria.id);

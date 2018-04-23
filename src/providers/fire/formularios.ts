@@ -25,7 +25,10 @@ export class FormulariosProvider {
   }
 
   fetchByCategoriaId(categoriaId: string) {
-    return this.fetchWithQuery(ref => ref.where('categoriaId', '==', categoriaId));
+    return this.fetchWithQuery(
+      ref => ref.where('categoriaId', '==', categoriaId)
+                .orderBy('nombre')
+    );
   }
 
 }
