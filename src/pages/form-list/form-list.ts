@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Categoria, CategoriaInterface } from '../../models/categoria';
 import { FormulariosProvider } from '../../providers/fire/formularios';
+import { FormViewerPage } from '../form-viewer/form-viewer';
 
 /**
  * Generated class for the FormListPage page.
@@ -35,6 +36,10 @@ export class FormListPage {
     
   }
 
+  openFormulario(formulario) {
+    this.navCtrl.push(FormViewerPage, { categoria: this.categoria, formulario: formulario });
+  }
+
   fetchFormulariosByCategoriaId(categoriaId: string) {
     let formulariosObservable = this.formProv.fetchByCategoriaId(this.categoria.id);
     formulariosObservable.subscribe(
@@ -46,5 +51,6 @@ export class FormListPage {
         )
       }
     );
+    
   }
 }

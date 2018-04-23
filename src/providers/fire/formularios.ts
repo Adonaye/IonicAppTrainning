@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FireProvider } from './fire';
 import { QueryFn } from 'angularfire2/firestore';
+import { CategoriaInterface } from '../../models/categoria';
+import { FormularioInterface } from '../../models/formulario';
 
 @Injectable()
 export class FormulariosProvider {
@@ -29,6 +31,10 @@ export class FormulariosProvider {
       ref => ref.where('categoriaId', '==', categoriaId)
                 .orderBy('nombre')
     );
+  }
+
+  fetchCampos(formulario: FormularioInterface) {
+    return this.fire.fetchDocument('Formularios', formulario.id).collection('campos');
   }
 
 }

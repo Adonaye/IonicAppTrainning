@@ -19,7 +19,7 @@
 <ion-content>
   <ion-list>
       <ion-item-divider color="light" sticky>{{ categoria.nombre }}</ion-item-divider>
-      <button ion-item *ngFor="let formulario of formularios" (click)="foo()">
+      <button ion-item *ngFor="let formulario of formularios" (click)="openFormulario(formulario)">
         <ion-icon name='flask' item-start></ion-icon>
         {{ formulario.nombre }}
         <ion-note item-end>

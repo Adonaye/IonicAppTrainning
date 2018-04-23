@@ -23,4 +23,8 @@ export class FireProvider {
   fetchCollectionWithQuery(path: string, fn: QueryFn) {
     return this.db.collection(path, fn);
   }
+
+  fetchDocument(collPath: string, docPath: string) {
+    return this.db.collection(collPath).doc(docPath);
+  }
 }
