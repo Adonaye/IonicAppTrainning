@@ -17,7 +17,7 @@ import { DropdownQuestion } from '../../ts/question-dropdown';
   selector: 'page-form-viewer',
   templateUrl: 'form-viewer.html',
 })
-export class FormViewerPage implements OnInit{
+export class FormViewerPage {
   questions: any[];
   camposObs: any;
   categoria: CategoriaInterface;
@@ -32,29 +32,14 @@ export class FormViewerPage implements OnInit{
     this.categoria = this.navParams.get('categoria');
     this.formulario = this.navParams.get('formulario');
     this.camposObs = this.formProv.fetchCampos(this.formulario);
-    /* this.camposObs.snapshotChanges().subscribe(
-      campos => {
-        campos.forEach(
-          // campo => console.log(campo.payload.doc.data())
-          campo => this.questions.push(new DropdownQuestion(campo.payload.doc.data()))
-        )
-      }
-    ) */
-    // this.questions = qService.getQuestions();
-  }
-
-  ngOnInit() {
-    var inquestions;
     this.camposObs.snapshotChanges().subscribe(
       campos => {
+        let camposComming = [];
         campos.forEach(
           // campo => console.log(campo.payload.doc.data())
-          campo => {
-            
-            inquestions = [new DropdownQuestion(campo.payload.doc.data())]
-          }
-        )
-      this.questions = inquestions;        
+          campo => camposComming.push(new DropdownQuestion(campo.payload.doc.data()))
+        );
+        this.questions = camposComming;
       }
     )
   }

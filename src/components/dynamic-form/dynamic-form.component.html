@@ -1,5 +1,5 @@
 <!--component html goes here -->
-<div>
+<div *ngIf="form != undefined">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <ion-list>
       <div *ngFor="let question of questions" class="form-row">
