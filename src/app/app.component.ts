@@ -19,30 +19,16 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
   categorias: Categoria[] = new Array<Categoria>();
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
+    public platform: Platform,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public cp: CategoriasProvider
   ) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    // this.pages = [
-    //   { title: 'Home', component: HomePage },
-    //   { title: 'List', component: ListPage },
-    //   { title: 'Form Viewer', component: FormViewerPage },
-    // ];
-    
-    // import categories and add the url references to the pages property
-    // this is made before hiding splash screen
-    // redirect to form-list component with the url in the navparams
-    
-    
-    
   }
 
   initializeApp() {
@@ -50,10 +36,10 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      
+
       // load categories in the sidebar
       this.loadCategorias();
-      
+
       this.splashScreen.hide();
     });
   }
@@ -62,21 +48,23 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     //this.nav.setRoot(page.component);
-    
+
     // use categoria ID in the page and send it to the form-list component
     this.nav.setRoot(FormListPage, { categoria: categoria });
-    
+
   }
-  
+
   loadCategorias() {
     let categoriasObservable = this.cp.fetch();
     categoriasObservable.subscribe(
       data => {
-        this.categorias = data.map(
-          categoria => {
-            return {id: categoria.payload.doc.id, ...categoria.payload.doc.data()};
+        data.forEach(categoria => {
+          if (categoria.payload.doc.data()['active']) {
+            this.categorias.push({ 
+              id: categoria.payload.doc.id, ...categoria.payload.doc.data()
+            })
           }
-        );
+        })
       }
     );
   }
