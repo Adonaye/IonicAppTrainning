@@ -5,7 +5,7 @@
 
     <ion-item *ngSwitchCase="'textbox'">
       <ion-label>{{question.label}}</ion-label>
-      <ion-input [formControlName]="question.key" [id]="question.key" [type]="question.type" value=""></ion-input>
+      <ion-input [formControlName]="question.key" [id]="question.key" [type]="question.type" [value]="question.value"></ion-input>
     </ion-item>
 
 
