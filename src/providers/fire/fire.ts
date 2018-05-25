@@ -27,4 +27,16 @@ export class FireProvider {
   fetchDocument(collPath: string, docPath: string) {
     return this.db.collection(collPath).doc(docPath);
   }
+
+  createDocInColl(collPath, docInfo, responseCallback, errorCallback) {
+    let coll = this.fetchCollection(collPath);
+    let id = this.db.createId();
+    docInfo.id = id;
+    coll.doc(id)
+      .set(docInfo)
+      .then(
+        response => responseCallback(response),
+        error => errorCallback(error)
+      );
+  }
 }

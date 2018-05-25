@@ -31,10 +31,6 @@ export class FormListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormListPage');
   }
-  
-  foo() {
-    
-  }
 
   openFormulario(formulario) {
     this.navCtrl.push(FormViewerPage, { categoria: this.categoria, formulario: formulario });

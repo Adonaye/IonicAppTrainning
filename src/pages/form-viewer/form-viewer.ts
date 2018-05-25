@@ -22,6 +22,7 @@ export class FormViewerPage {
   camposObs: any;
   categoria: CategoriaInterface;
   formulario: FormularioInterface;
+  responseCallback: Function;
 
   constructor(
     public navCtrl: NavController,
@@ -32,6 +33,9 @@ export class FormViewerPage {
     this.categoria = this.navParams.get('categoria');
     this.formulario = this.navParams.get('formulario');
     this.questions = this.formulario.Campos;
+    this.responseCallback = response => {
+      this.navCtrl.popToRoot();
+    };
   }
 
   ionViewDidLoad() {

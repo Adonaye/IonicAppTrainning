@@ -9,7 +9,7 @@ import { FormularioInterface } from '../../models/formulario';
 export class FormulariosProvider {
 
   constructor(
-    public fire:FireProvider,
+    public fire: FireProvider,
   ) {
     
   }
