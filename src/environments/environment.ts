@@ -1,12 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyC9UlbpfXs2C2yT38_rIqU_elgj-rlrL4Y",
-    authDomain: "pftry-77240.firebaseapp.com",
-    databaseURL: "https://pftry-77240.firebaseio.com",
-    projectId: "pftry-77240",
-    storageBucket: "pftry-77240.appspot.com",
-    messagingSenderId: "375944095749",
-    timestampsInSnapshots: true
+    apiKey: "AIzaSyAensBdPURiYUuJE5acwjrio95FkZ9lJzE",
+    authDomain: "db-labcivil.firebaseapp.com",
+    databaseURL: "https://db-labcivil.firebaseio.com",
+    projectId: "db-labcivil",
+    storageBucket: "db-labcivil.appspot.com",
+    messagingSenderId: "766312781035"
   }
 };
