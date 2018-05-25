@@ -4,7 +4,7 @@ export interface FormularioInterface {
     categoriaId?: string;
     version?: number;
     // cambiar tipo de campo cuando se defina la clase
-    campos?: any[];
+    Campos?: any[];
 }
 
 export class Formulario {

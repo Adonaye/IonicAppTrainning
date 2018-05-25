@@ -34,7 +34,7 @@ export class FormulariosProvider {
   }
 
   fetchCampos(formulario: FormularioInterface) {
-    return this.fire.fetchDocument('Formularios', formulario.id).collection('campos');
+    return this.fire.fetchDocument('Formularios', formulario.id).collection('Campos');
   }
 
 }

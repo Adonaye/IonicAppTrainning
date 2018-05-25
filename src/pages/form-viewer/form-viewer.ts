@@ -24,24 +24,14 @@ export class FormViewerPage {
   formulario: FormularioInterface;
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     qService: QuestionService,
     public formProv: FormulariosProvider
   ) {
     this.categoria = this.navParams.get('categoria');
     this.formulario = this.navParams.get('formulario');
-    this.camposObs = this.formProv.fetchCampos(this.formulario);
-    this.camposObs.snapshotChanges().subscribe(
-      campos => {
-        let camposComming = [];
-        campos.forEach(
-          // campo => console.log(campo.payload.doc.data())
-          campo => camposComming.push(new DropdownQuestion(campo.payload.doc.data()))
-        );
-        this.questions = camposComming;
-      }
-    )
+    this.questions = this.formulario.Campos;
   }
 
   ionViewDidLoad() {
