@@ -41,6 +41,7 @@ export class DynamicFormComponent implements OnInit {
         value: form[prop]
       })
     }
+    response['fechaDeCreacion'] = Date.now();
     return response;
   }
 
