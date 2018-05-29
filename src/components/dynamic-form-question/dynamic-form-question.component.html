@@ -5,7 +5,9 @@
 
     <ion-item *ngSwitchCase="'textbox'">
       <ion-label stacked>{{question.label}}</ion-label>
-      <ion-textarea [formControlName]="question.key" [id]="question.key" [type]="question.type" [value]="question.value"></ion-textarea>
+      <ion-textarea *ngIf="question.type==='text'" [formControlName]="question.key" [id]="question.key" [type]="question.type"
+        [value]="question.value"></ion-textarea>
+      <ion-input *ngIf="question.type!=='text'" [formControlName]="question.key" [id]="question.key" [type]="question.type" [value]="question.value"></ion-input>
     </ion-item>
 
 
