@@ -58,8 +58,8 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.presentConfirm();
-    this.payLoad = this.form.value;
+    this.presentConfirm();
+    // this.payLoad = this.form.value;
   }
 
   presentConfirm() {
