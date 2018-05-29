@@ -5,6 +5,8 @@ import { FormularioInterface } from '../../models/formulario';
 import { CategoriaInterface } from '../../models/categoria';
 import { FormulariosProvider } from '../../providers/fire/formularios';
 import { DropdownQuestion } from '../../ts/question-dropdown';
+import { CheckboxQuestion } from '../../ts/question-checkbox';
+import { TextboxQuestion } from '../../ts/question-textbox';
 
 /**
  * Generated class for the FormViewerPage page.
@@ -32,10 +34,23 @@ export class FormViewerPage {
   ) {
     this.categoria = this.navParams.get('categoria');
     this.formulario = this.navParams.get('formulario');
-    this.questions = this.formulario.Campos;
+    this.questions = this.initQuestions(this.formulario.Campos);
     this.responseCallback = response => {
       this.navCtrl.popToRoot();
     };
+  }
+
+  initQuestions(campos) {
+    return campos.map(campo => {
+      switch(campo.controlType) {
+        case 'textbox':
+          return new TextboxQuestion(campo);
+        case 'checkbox':
+          return new CheckboxQuestion(campo);
+        case 'dropdown':
+          return new DropdownQuestion(campo);
+      }
+    });
   }
 
   ionViewDidLoad() {
