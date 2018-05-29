@@ -50,7 +50,7 @@ export class FormViewerPage {
         case 'dropdown':
           return new DropdownQuestion(campo);
       }
-    });
+    }).sort((a, b) => {a.order - b.order});
   }
 
   ionViewDidLoad() {
