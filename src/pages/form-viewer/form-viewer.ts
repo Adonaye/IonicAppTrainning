@@ -7,6 +7,7 @@ import { FormulariosProvider } from '../../providers/fire/formularios';
 import { DropdownQuestion } from '../../ts/question-dropdown';
 import { CheckboxQuestion } from '../../ts/question-checkbox';
 import { TextboxQuestion } from '../../ts/question-textbox';
+import { DateQuestion } from '../../ts/question-date';
 
 /**
  * Generated class for the FormViewerPage page.
@@ -49,6 +50,8 @@ export class FormViewerPage {
           return new CheckboxQuestion(campo);
         case 'dropdown':
           return new DropdownQuestion(campo);
+        case 'date':
+          return new DateQuestion(campo);
       }
     }).sort((a, b) => a.order - b.order);
   }
