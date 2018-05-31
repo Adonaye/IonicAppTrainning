@@ -23,7 +23,13 @@
       <ion-checkbox [id]="question.key" [formControlName]="question.key"></ion-checkbox>
     </ion-item>
 
+    <ion-item *ngSwitchCase="'date'">
+      <ion-label>{{question.label}}</ion-label>
+      <ion-datetime [id]="question.key" [displayFormat]="question.format" [formControlName]="question.key">
+      </ion-datetime>
+    </ion-item>
+
   </div>
 
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} es requerido</div>
+  <div class="error-message" *ngIf="!isValid">{{question.label}} es requerido</div>
 </div>
