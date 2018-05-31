@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Observable } from 'rxjs/Observable';
@@ -26,7 +26,8 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public cp: CategoriasProvider
+    public cp: CategoriasProvider,
+    private alertCtrl: AlertController,
   ) {
     this.initializeApp();
   }
@@ -35,12 +36,13 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(true);
+      this.statusBar.backgroundColorByHexString('#363636');
 
       // load categories in the sidebar
       this.loadCategorias();
 
-      this.splashScreen.hide();
+      // this.splashScreen.hide();
     });
   }
 
@@ -60,12 +62,40 @@ export class MyApp {
       data => {
         data.forEach(categoria => {
           if (categoria.payload.doc.data()['active']) {
-            this.categorias.push({ 
+            this.categorias.push({
               id: categoria.payload.doc.id, ...categoria.payload.doc.data()
             })
           }
-        })
+        });
+        this.splashScreen.hide();
+      },
+      error => {
+        this.showReloadAlert();
       }
     );
+  }
+
+  showReloadAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Problemas de conexión',
+      message: 'Tenemos problemas para conectar con el servidor. ¿desea reintentar?',
+      buttons: [
+        {
+          text: 'Salir',
+          role: 'cancel',
+          handler: () => {
+            this.platform.exitApp();
+          }
+        },
+        {
+          text: 'Reintentar',
+          handler: () => {
+            this.splashScreen.show();
+            this.loadCategorias();
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }
