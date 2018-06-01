@@ -1,15 +1,18 @@
 <!--component html goes here -->
 <div *ngIf="form != undefined">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <ion-list>
-      <div *ngFor="let question of questions" class="form-row">
-        <app-question [question]="question" [form]="form"></app-question>
-      </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let question of questions" col-lg-6 col-12>
 
-      <div class="form-row">
+          <app-question [question]="question" [form]="form"></app-question>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="form-row">
         <button ion-button block type="submit" [disabled]="!form.valid">Guardar Entrada</button>
-      </div>
-    </ion-list>
+      </ion-row>
+    </ion-grid>
   </form>
 
   <!-- only for testing submti
