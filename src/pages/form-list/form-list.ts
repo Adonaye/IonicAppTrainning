@@ -36,7 +36,7 @@ export class FormListPage {
     this.navCtrl.push(FormViewerPage, { categoria: this.categoria, formulario: formulario });
   }
 
-  fetchFormulariosByCategoriaId(categoriaId: string) {
+  fetchFormulariosByCategoriaId(categoriaId: string, callback?: Function) {
     let formulariosObservable = this.formProv.fetchByCategoriaId(this.categoria.id);
     formulariosObservable.subscribe(
       formularios => {
@@ -44,9 +44,16 @@ export class FormListPage {
           formulario => {
             return {id: formulario.payload.doc.id, ...formulario.payload.doc.data()}
           }
-        )
+        );
+        callback ? callback() : null;
       }
     );
-    
+  }
+
+  doRefresh(refresher) {
+    this.formularios = null;
+    this.fetchFormulariosByCategoriaId(this.categoria.id, () => {
+      refresher.complete();
+    });
   }
 }
