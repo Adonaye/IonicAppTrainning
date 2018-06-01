@@ -56,6 +56,12 @@ export class MyApp {
 
   }
 
+  /* 
+    TODO: analizar estado de conexion antes de listar catergorias
+    En caso de no haber conexion, mostrar modal de conexion
+    Crear nuevo modal que informe que, aunque haya conexion, no se encontraron categorias
+  */
+
   loadCategorias() {
     let categoriasObservable = this.cp.fetch();
     categoriasObservable.subscribe(
