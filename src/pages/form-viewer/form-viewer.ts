@@ -40,6 +40,7 @@ export class FormViewerPage {
     this.formulario = this.navParams.get('formulario');
     this.questions = this.initQuestions(this.formulario.Campos);
     this.responseCallback = response => {
+      this.canLeave = true;
       this.navCtrl.popToRoot();
     };
   }
