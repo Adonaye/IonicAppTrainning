@@ -1,11 +1,12 @@
 <!--component html goes here -->
 <div *ngIf="form != undefined">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let question of questions" col-lg-6 col-12>
+    <ion-grid text-wrap>
+      <ion-row text-wrap>
+        <ion-col text-wrap *ngFor="let question of questions" col-lg-6 col-12>
 
           <app-question [question]="question" [form]="form"></app-question>
+          
         </ion-col>
       </ion-row>
 

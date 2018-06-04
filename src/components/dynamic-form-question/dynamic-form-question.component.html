@@ -4,7 +4,7 @@
   <div [ngSwitch]="question.controlType">
 
     <ion-item *ngSwitchCase="'textbox'">
-      <ion-label floating>{{question.label}}</ion-label>
+      <ion-label text-wrap floating>{{question.label}}</ion-label>
       <ion-textarea *ngIf="question.type==='text'" [formControlName]="question.key" [id]="question.key" [type]="question.type"
         [value]="question.value"></ion-textarea>
       <ion-input *ngIf="question.type!=='text'" [formControlName]="question.key" [id]="question.key" [type]="question.type" [value]="question.value"></ion-input>
@@ -12,19 +12,19 @@
 
 
     <ion-item *ngSwitchCase="'dropdown'">
-      <ion-label floating>{{question.label}}</ion-label>
+      <ion-label text-wrap floating>{{question.label}}</ion-label>
       <ion-select [id]="question.key" [formControlName]="question.key">
         <ion-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item *ngSwitchCase="'checkbox'">
-      <ion-label>{{question.label}}</ion-label>
+      <ion-label text-wrap>{{question.label}}</ion-label>
       <ion-checkbox [id]="question.key" [formControlName]="question.key"></ion-checkbox>
     </ion-item>
 
     <ion-item *ngSwitchCase="'date'">
-      <ion-label floating>{{question.label}}</ion-label>
+      <ion-label text-wrap floating>{{question.label}}</ion-label>
       <ion-datetime [id]="question.key" [displayFormat]="question.format" [formControlName]="question.key">
       </ion-datetime>
     </ion-item>
